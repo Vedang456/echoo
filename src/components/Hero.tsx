@@ -1,50 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Image } from "@heroui/react";
-import { useEffect, useState } from "react";
 import Squares from "./Squares";
 import CircularText from "./CircularText";
 import CircularGallery from './CircularGallery';
 import echooNewLogo from "@/assets/echoo-new-logo.png";
 
-// Import all images using Vite's import.meta.glob
-const imageModules = import.meta.glob('@/assets/asset*.png', { import: 'default', eager: true });
-
-// Get the special case image with capital A
-const asset8Module = import.meta.glob('@/assets/Asset8.png', { import: 'default', eager: true });
-
-// Create gallery items with proper URLs
-const createGalleryItems = () => {
-  const items = [];
-  
-  // Process all asset*.png files
-  Object.entries(imageModules).forEach(([path, src]) => {
-    if (src) {
-      items.push({
-        id: path,
-        src: src as string,
-        alt: `Gallery item ${items.length + 1}`
-      });
-    }
-  });
-  
-  // Add the special case Asset8.png
-  Object.entries(asset8Module).forEach(([path, src]) => {
-    if (src) {
-      items.push({
-        id: path,
-        src: src as string,
-        alt: `Gallery item ${items.length + 1}`
-      });
-    }
-  });
-  
-  return items;
-};
-
 export const Hero = () => {
-  const galleryItems = createGalleryItems();
-
   return (
     <>
       <section className="relative min-h-[20vh] flex flex-col items-center justify-start overflow-hidden dapp-background">
@@ -136,22 +97,24 @@ export const Hero = () => {
           />
         </div>
         
-        {/* Gallery - Only visible on desktop */}
-        <div className="hidden md:flex w-full justify-center py-10 px-4 relative z-10">
-          <div className="grid grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {galleryItems.map((item) => (
-              <div 
-                key={item.id}
-                className="aspect-square overflow-hidden rounded-xl"
-              >
-                <Image
-                  as="img"
-                  alt={item.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  src={item.src}
-                  loading="lazy"
-                  radius="lg"
-                  shadow="md"
+        {/* Mobile Static Gallery - Hidden on desktop */}
+        <div className="flex md:hidden w-full justify-center py-10 px-4 relative z-10">
+          <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {[
+              '/src/assets/asset1.png',
+              '/src/assets/asset2.png',
+              '/src/assets/asset3.png',
+              '/src/assets/asset4.png',
+              '/src/assets/asset5.png',
+              '/src/assets/asset6.png',
+              '/src/assets/asset7.png',
+              '/src/assets/Asset8.png' // Note the capital 'A' in Asset8
+            ].map((src, index) => (
+              <div key={index} className="aspect-square overflow-hidden rounded-lg">
+                <img
+                  alt={`Gallery item ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  src={src}
                 />
               </div>
             ))}
