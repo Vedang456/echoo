@@ -97,29 +97,6 @@ export const Hero = () => {
           />
         </div>
         
-        {/* Mobile Static Gallery - Hidden on desktop */}
-        <div className="flex md:hidden w-full justify-center py-10 px-4 relative z-10">
-          <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-            {[
-              '/src/assets/asset1.png',
-              '/src/assets/asset2.png',
-              '/src/assets/asset3.png',
-              '/src/assets/asset4.png',
-              '/src/assets/asset5.png',
-              '/src/assets/asset6.png',
-              '/src/assets/asset7.png',
-              '/src/assets/Asset8.png' // Note the capital 'A' in Asset8
-            ].map((src, index) => (
-              <div key={index} className="aspect-square overflow-hidden rounded-lg">
-                <img
-                  alt={`Gallery item ${index + 1}`}
-                  className="w-full h-full object-cover"
-                  src={src}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
     </>
   );
