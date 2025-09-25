@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Echoo brand colors - exact palette */
+    --background: 0 0% 0%;  /* Pure Black */
+    --foreground: 45 15% 85%;   /* Soft warm gray */
+
+    --card: 210 29% 26%;
+    --card-foreground: 45 15% 85%;
+
+    --popover: 210 29% 22%;
+    --popover-foreground: 45 15% 85%;
+
+    /* Coral Orange primary */
+    --primary: 12 80% 60%;     /* Softer coral */
+    --primary-glow: 16 80% 65%; /* Softer coral glow */
+    --primary-foreground: 45 15% 85%;
+
+    /* Deep Teal secondary */
+    --secondary: 180 60% 35%;  /* Softer teal */
+    --secondary-glow: 180 60% 40%; /* Softer teal glow */
+    --secondary-foreground: 45 15% 85%;
+
+    --muted: 210 29% 30%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 210 29% 32%;
+    --accent-foreground: 45 15% 85%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 15% 85%;
+
+    --border: 210 29% 35%;
+    --input: 210 29% 30%;
+    --ring: 12 100% 64%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens with exact brand colors */
+    --gradient-primary: linear-gradient(135deg, #FF6B47, #FF8A6B);
+    --gradient-secondary: linear-gradient(135deg, #008B8B, #20B2AA);
+    --gradient-hero: linear-gradient(135deg, #FF6B47, #008B8B);
+    --shadow-glow: 0 0 40px rgba(255, 107, 71, 0.3);
+    --shadow-secondary-glow: 0 0 40px rgba(0, 139, 139, 0.3);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Same as light - echoo uses consistent brand theme */
+    --background: 0 0% 0%;  /* Pure Black */
+    --foreground: 45 15% 85%;   /* Soft warm gray */
+    --card: 210 29% 26%;
+    --card-foreground: 45 15% 85%;
+    --popover: 210 29% 22%;
+    --popover-foreground: 45 15% 85%;
+    --primary: 12 80% 60%;     /* Softer coral */
+    --primary-glow: 16 80% 65%;
+    --primary-foreground: 45 15% 85%;
+    --secondary: 180 60% 35%;  /* Softer teal */
+    --secondary-glow: 180 60% 40%;
+    --secondary-foreground: 45 15% 85%;
+    --muted: 210 29% 30%;
+    --muted-foreground: 210 15% 65%;
+    --accent: 210 29% 32%;
+    --accent-foreground: 45 15% 85%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 15% 85%;
+    --border: 210 29% 35%;
+    --input: 210 29% 30%;
+    --ring: 12 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  /* DApp Background Patterns */
+  .dapp-background {
+    background: 
+      /* Main background */
+      hsl(var(--background)),
+      /* Grid pattern */
+      linear-gradient(rgba(255, 107, 71, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 107, 71, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px;
+    position: relative;
+  }
+  
+  .dapp-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(255, 107, 71, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0, 139, 139, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(255, 107, 71, 0.05) 0%, transparent 30%);
+    pointer-events: none;
+  }
+
+  /* Network Node Pattern */
+  .network-nodes {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(2px 2px at 120px 30px, #FF6B47, transparent),
+      radial-gradient(2px 2px at 40px 70px, #008B8B, transparent),
+      radial-gradient(1px 1px at 90px 40px, #FF6B47, transparent),
+      radial-gradient(1px 1px at 130px 80px, #008B8B, transparent),
+      radial-gradient(2px 2px at 160px 30px, #FF6B47, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    opacity: 0.4;
+    animation: float-nodes 20s linear infinite;
+  }
+
+  /* Hero components */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .primary-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .secondary-gradient {
+    background: var(--gradient-secondary);
+  }
+  
+  .tertiary-gradient {
+    background: linear-gradient(135deg, #7B68EE, #6A5ACD); /* Example tertiary gradient */
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .secondary-glow-effect {
+    box-shadow: var(--shadow-secondary-glow);
+  }
+  
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer utilities {
+  /* Custom keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes float-nodes {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(200px); }
+  }
+  
+  @keyframes pulse-glow {
+    0% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+      transform: scale(1);
+    }
+    100% { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes network-pulse {
+    0%, 100% { 
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+  }
+}
