@@ -1,6 +1,91 @@
-# Nexus Lens Secure
+# 🎯 Echoo - AI-Powered Social Media Platform
 
-Nexus Lens Secure is an innovative platform that combines cutting-edge AI with robust blockchain technology to revolutionize social media photo sharing. It provides users with an AI-powered personal assistant for content curation and management, along with decentralized and secure storage for their digital memories, ensuring complete privacy and control.
+![Echoo Banner](public/images/og-image.png)
+
+Echoo is an innovative social media platform that leverages artificial intelligence to enhance user experience and content interaction. Built with modern web technologies, Echoo provides a seamless and engaging platform for sharing and discovering content.
+
+## ✨ Features
+
+- **AI-Powered Content Curation** - Intelligent algorithms help you discover content tailored to your interests
+- **Modern UI/UX** - Clean, responsive design built with the latest web technologies
+- **Real-time Interactions** - Engage with content through likes, comments, and shares
+- **Secure Platform** - Robust authentication and data protection measures
+- **Customizable Experience** - Personalize your feed and profile to match your style
+
+## 🚀 Tech Stack
+
+- **Frontend**: React, TypeScript, TailwindCSS
+- **UI Components**: Shadcn/UI, Lucide Icons
+- **State Management**: React Query
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with CSS Modules
+- **Form Handling**: React Hook Form
+- **Routing**: React Router
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+ (recommended: install using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
+- npm or yarn package manager
+- Git
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Vedang456/echoo.git
+   cd echoo
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser to see the application.
+
+## 📂 Project Structure
+
+```
+src/
+├── assets/          # Static assets (images, icons, etc.)
+├── components/      # Reusable UI components
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions and configurations
+├── pages/           # Page components
+└── App.tsx          # Main application component
+```
+
+## 🌟 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Shadcn/UI](https://ui.shadcn.com/) for the amazing component library
+- [Vite](https://vitejs.dev/) for the fast development experience
+- [React](https://react.dev/) for building user interfaces
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
 
 ## How can I edit this code?
 
