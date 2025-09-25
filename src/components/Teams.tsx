@@ -94,7 +94,7 @@ export default function Teams() {
     {
       id: 2,
       name: "Vedang Limaye",
-      handle: "VedangL51004",
+      handle: "vedanglimay_eth",
       role: "Web3, Designer, Blockchain",
       description: "Web3 developer and Landing Page designer",
       tags: ["#DomainExpansion", "🌐"],
